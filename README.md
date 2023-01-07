@@ -16,7 +16,7 @@ Clone repository and put desired binarized image into the folder named 'images'.
 Run rrt.py.
 
 ```console
-foo@bar:~$ python binarize.py
+foo@bar:~$ python rrt.py
 ```
 Type in the name of desired image.
 
