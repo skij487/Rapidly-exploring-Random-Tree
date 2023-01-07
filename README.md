@@ -1,23 +1,23 @@
 # Rapidly-exploring-Random-Tree
 
-Crop image and stretch it to fit a rectangular shape.
+Find path between two points on a binarized image.
 
 Original Image.
-![Original_Image](https://github.com/skij487/Image-Preparation/blob/main/images/test_image.jpg)
+![Original_Image](https://github.com/skij487/Rapidly-exploring-Random-Tree/blob/main/images/test_image.jpg)
 
-Result of Crop, warp and binarization.
-![Binarized_Image](https://github.com/skij487/Image-Preparation/blob/main/output/binarized_test_image.jpg)
+Result of RRT when the path was found between two points.
+![Mapped_Image](https://github.com/skij487/Rapidly-exploring-Random-Tree/blob/main/output/mapped_test_image.jpg)
 
 ## How to Run
-Clone repository and put desired image into the folder named 'images'.
+Clone repository and put desired binarized image into the folder named 'images'.
 
-Run binarize.py.
+Run rrt.py.
 
 ```console
 foo@bar:~$ python binarize.py
 ```
 Type in the name of desired image.
 
-Click 4 points to crop and press enter.
+Enter maximum number of steps and the stepsize.
 
-When new window showing binarized image pops up, press enter again to save it.
+Click two points on the image and press enter.
