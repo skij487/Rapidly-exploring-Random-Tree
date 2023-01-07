@@ -22,4 +22,4 @@ Type in the name of desired image.
 
 Enter maximum number of steps and the stepsize.
 
-Click two points on the image and press enter.
+Click two points on the image for finding path and press enter.
