@@ -80,11 +80,11 @@ def near_vertex(qrand, tree):
 def new_step(qnear, qrand, stepsize):
     dist = node_dist(qnear, qrand)
     if dist > stepsize:
-    	x = int((qrand.x - qnear.x) / dist * stepsize + qnear.x)
-    	y = int((qrand.y - qnear.y) / dist * stepsize + qnear.y)
+        x = int((qrand.x - qnear.x) / dist * stepsize + qnear.x)
+        y = int((qrand.y - qnear.y) / dist * stepsize + qnear.y)
     else:
-    	x = qrand.x
-    	y = qrand.y
+        x = qrand.x
+        y = qrand.y
     return Node(x, y, qnear)
 
 def buildrrt(img, root, steps, stepsize):
@@ -102,10 +102,10 @@ def buildrrt(img, root, steps, stepsize):
     return tree
 
 if __name__ == "__main__":
-    steps = 1000
-    img_name = 'robot_maze_bin.jpg'
-    default_img = cv2.imread(img_name)
-    stepsize = 20
+    img_name = input("Image name:\n")
+    default_img = cv2.imread('images/' + img_name)
+    steps = int(input("Steps:\n"))
+    stepsize = int(input("Stepsize:\n"))
 
     coordinates = []
     loop = True
@@ -138,8 +138,10 @@ if __name__ == "__main__":
             for node in mapping:
                 new_node = pixel_to_cartesian(img, node)
                 print(new_node.x, new_node.y)
+            cv2.imwrite('output/mapped_' + img_name, img)
         else:
             print("Path not found")
+            cv2.imwrite('output/unmapped_' + img_name, img)
         c = cv2.waitKey(0)
         if c == 27:
             loop = False
