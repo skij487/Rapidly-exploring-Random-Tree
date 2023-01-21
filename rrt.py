@@ -87,9 +87,10 @@ def new_step(qnear, qrand, stepsize):
         y = qrand.y
     return Node(x, y, qnear)
 
-def buildrrt(img, root, steps, stepsize):
+def buildrrt(img, root, goal, steps, stepsize):
     tree = [root]
-    for i in range(steps):
+    i = 0
+    while i < steps:
         occupied = True
         while occupied:
             qrand = rand_free(img) # im cannot be checked by rrt
@@ -99,6 +100,8 @@ def buildrrt(img, root, steps, stepsize):
                 occupied = False
         tree.append(qnew)
         draw_edge(img, qnew)
+        if node_dist(qnew, goal) <= stepsize:
+            i = steps
     return tree
 
 if __name__ == "__main__":
@@ -120,7 +123,7 @@ if __name__ == "__main__":
         cv2.circle(img, (root.x, root.y), radius=5, color=(255,0,0), thickness=-1)
         cv2.circle(img, (goal.x, goal.y), radius=5, color=(255,0,0), thickness=-1)
         cv2.imshow('map', img)
-        tree = buildrrt(img, root, steps, stepsize)
+        tree = buildrrt(img, root, goal, steps, stepsize)
         gnear = near_vertex(goal, tree)
         reverse_mapping = []
         mapping = []
